@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native';
+import { StyleSheet, Text, View, Alert, Image, TouchableOpacity } from 'react-native';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
         <View style={{
           position: 'absolute',
           top: 0,
-          left: -100,
+          left: 0,
           width: '100%',
           height: '100%',
           opacity: 0.15
@@ -29,14 +29,14 @@ export default class App extends React.Component {
           <View style={styles.content}>
             <Text style={styles.title}>Start Your Club</Text>
             <Text style={styles.info}>{this.state.text}</Text>
-            <View style={styles.buttonContainer}>
-              <Button style={styles.button}
+            <View>
+              <TouchableOpacity style={styles.button}
                 color="#FFFFFF"
                 onPress={() => {
                   Alert.alert('You tapped the button! You go Glen Coco!');
-                }}
-                title="Get Started"
-              />
+                }}>
+                <Text style={styles.buttonText}>Get Started</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -68,16 +68,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 20
   },
-  buttonContainer: {
+  button: {
     margin: 20,
-    padding: 10,
+    padding: 20,
     width: 250,
     height: 64,
+    borderRadius: 40,
+    alignItems: 'center',
     backgroundColor: '#F313B7',
-    borderRadius: 40
   },
-  button: {
+  buttonText: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#FFFFFF'
   }
 });
