@@ -46,7 +46,7 @@ export default class Home extends React.Component {
                   <TouchableOpacity style={styles.button}
                     color="#FFFFFF"
                     onPress={() => {
-                      Alert.alert('You tapped the button! You go Glen Coco!');
+                      this.props.navigation.navigate("UserSignup");
                     }}>
                     <Text style={styles.buttonText}>Get Started</Text>
                   </TouchableOpacity>
@@ -54,20 +54,6 @@ export default class Home extends React.Component {
               </View>
               ) : null
             }
-            source={require('../assets/images/logo-transparent.png')} />
-          <View style={styles.content}>
-            <Text style={styles.title}>Start Your Club</Text>
-            <Text style={styles.info}>{this.state.text}</Text>
-            <View>
-              <TouchableOpacity style={styles.button}
-                color="#FFFFFF"
-                onPress={() => {
-                  this.props.navigation.navigate("UserSignup");
-                }}>
-                <Text style={styles.buttonText}>Get Started</Text>
-              </TouchableOpacity>
-          </View>
-        </View>
       </View>
       </View>
     );
