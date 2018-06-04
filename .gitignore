@@ -44,6 +44,7 @@ testem.log
 test/reports/*
 !test/reports/.gitkeep
 *.tgz
+package-lock.json
 
 # System Files
 .DS_Store
