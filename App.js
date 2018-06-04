@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Alert, Image, TouchableOpacity } from 'react-na
 import { Font } from 'expo';
 import { createStackNavigator } from 'react-navigation'
 import UserSignup from './pages/UserSignup';
+import Home from './pages/Home'
+import { createStackNavigator } from 'react-navigation'
 
 export default class App extends React.Component {
   render() {
@@ -82,16 +84,17 @@ class Home extends React.Component {
       </View>
       </View>
     );
+    // return <Nav />
   }
 }
 
-const RootStack = createStackNavigator(
+const Nav = createStackNavigator(
   {
-    index: Home,
-    usersignup: UserSignup
+    Home: { screen: Home },
+    UserSignup: { screen: UserSignup },
   },
   {
-    initialRouteName: 'index'
+  initialRouteName: 'Home'
   }
 );
 
@@ -138,4 +141,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#FFFFFF'
   }
-});
+);
