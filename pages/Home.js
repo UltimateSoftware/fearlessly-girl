@@ -2,6 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Alert, Image, TouchableOpacity, Button } from 'react-native';
 
 export default class Home extends React.Component {
+  static navigationOptions = {
+    title: "Getting Started"
+  }
+
   constructor(props) {
     super(props);
     this.state = {
