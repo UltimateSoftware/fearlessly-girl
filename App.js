@@ -4,7 +4,6 @@ import { Font } from 'expo';
 import { createStackNavigator } from 'react-navigation'
 import UserSignup from './pages/UserSignup';
 import Home from './pages/Home'
-import { createStackNavigator } from 'react-navigation'
 
 export default class App extends React.Component {
   render() {
@@ -84,7 +83,7 @@ class Home extends React.Component {
       </View>
       </View>
     );
-    // return <Nav />
+    // return <Nav />;
   }
 }
 
@@ -94,7 +93,7 @@ const Nav = createStackNavigator(
     UserSignup: { screen: UserSignup },
   },
   {
-  initialRouteName: 'Home'
+    initialRouteName: 'Home'
   }
 );
 
@@ -141,4 +140,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#FFFFFF'
   }
+}
 );
