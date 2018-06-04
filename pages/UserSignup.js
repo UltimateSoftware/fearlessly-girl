@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, Button, View, Image } from 'react-native';
 
 export default class UserSignup extends React.Component {
+    static navigationOptions = {
+      title: "Login"
+    }
     constructor(props) {
         super(props);
         this.state = { text: 'Test Input' };
@@ -26,7 +29,6 @@ export default class UserSignup extends React.Component {
                 transform={[{scaleX: 0.4}, {scaleY: 0.4}]} 
                 source={require('../assets/logo-transparent.png')} />
             <View style={styles.content}>
-                <Text>Login</Text>
                 <Button title="Login with Facebook" onPress={() => console.log('Login with Facebook')}/>
                 <Button title="Login with Twitter" onPress={() => console.log('Login with Twitter')}/>
                 <Button title="Login with Google" onPress={() => console.log('Login with Google')}/>
