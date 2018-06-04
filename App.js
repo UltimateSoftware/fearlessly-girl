@@ -55,6 +55,7 @@ export default class App extends React.Component {
               ) : null
             }
         </View>
+        <Footer></Footer>
       </View>
     );
   }
