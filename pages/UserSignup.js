@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Image } from 'react-native';
-import AgeConfirmationModal from './usersignup/AgeConfirmationModal';
 
 export default class UserSignup extends React.Component {
     constructor(props) {
@@ -23,12 +22,12 @@ export default class UserSignup extends React.Component {
             opacity: 0.15
             }}>
                 <Image style={{ flex: 1 }} 
-                source={require('../assets/fg-splash-bg.jpg')}/>
+                source={require('../assets/images/fg-splash-bg.jpg')}/>
             </View>
             <View style={styles.container}>
                 <Image style={{width: 300, height: 80}} 
                 transform={[{scaleX: 0.4}, {scaleY: 0.4}]} 
-                source={require('../assets/logo-transparent.png')} />
+                source={require('../assets/images/logo-transparent.png')} />
             <View style={styles.content}>
                 <Button title="Login with Facebook" onPress={() => {
                   alert('Login with Facebook');
