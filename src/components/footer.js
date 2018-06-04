@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { StyleSheet, View, Text } from 'react-native';
+import { Icon, Badge } from 'react-native-elements';
+import IconBadge from 'react-native-icon-badge';
 
 /**
  * Usage
@@ -18,6 +19,12 @@ import { Icon } from 'react-native-elements';
     </View>
  */
 export default class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      badgeCount: 0
+    }
+  }
   render() {
     return (
       <View style={styles.footer}>
@@ -41,12 +48,20 @@ export default class Footer extends React.Component {
             color='#7E75C4' />
         </View>
         <View style={styles.secondaryIconPadding}>
-          <Icon
-            size={30}
-            name='bell'
-            onPress={this.props.bellIconAction}
-            type='font-awesome'
-            color='#DBD9DB' />
+          <IconBadge
+            MainElement={
+              <Icon
+                size={30}
+                name='bell'
+                onPress={this.props.bellIconAction}
+                type='font-awesome'
+                color='#DBD9DB' />
+            }
+            BadgeElement={
+              <Text style={{color:'#FFFFFF'}}>{this.state.badgeCount}</Text>
+            }
+            IconBadgeStyle={styles.iconBadgeStyle}
+            Hidden={this.state.badgeCount===0} />
         </View>
       </View>
     );
@@ -72,5 +87,9 @@ const styles = StyleSheet.create({
   secondaryIconPadding: {
     paddingRight: 20,
     paddingLeft: 20
+  },
+  iconBadgeStyle: {
+    top: -10,
+    right: -5
   }
 });
