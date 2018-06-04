@@ -1,8 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Alert, Image, TouchableOpacity } from 'react-native';
 import { Font } from 'expo';
+import { createStackNavigator } from 'react-navigation'
+import UserSignup from './pages/UserSignup';
 
 export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
+}
+
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,11 +62,38 @@ export default class App extends React.Component {
               </View>
               ) : null
             }
+            source={require('./assets/logo-transparent.png')} />
+          <View style={styles.content}>
+            <Text style={styles.title}>Start Your Club</Text>
+            <Text style={styles.info}>{this.state.text}</Text>
+            <View>
+              <TouchableOpacity style={styles.button}
+                color="#FFFFFF"
+                onPress={() => {
+                  Alert.alert('You tapped the button! You go Glen Coco!');
+                }}>
+                <Text style={styles.buttonText}>Get Started</Text>
+              </TouchableOpacity>
+            <View style={styles.buttonContainer}>
+              <Button title='Get Started' onPress={() => this.props.navigation.navigate('usersignup')}/>
+            </View>
+          </View>
         </View>
+      </View>
       </View>
     );
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    index: Home,
+    usersignup: UserSignup
+  },
+  {
+    initialRouteName: 'index'
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
