@@ -6,7 +6,7 @@ import IconBadge from 'react-native-icon-badge';
 /**
  * Usage
  * The <ScrollView> component must be used so that the footer can work properly:
- * import Footer from './src/components/footer.js';
+ * import Footer from './src/components/Footer.js';
  * <View style={{flex: 1}}>
       <ScrollView>
         ...Main page info goes here...
