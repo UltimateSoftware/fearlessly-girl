@@ -1,22 +1,25 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Alert, Image, TouchableOpacity } from 'react-native';
 import { Font } from 'expo';
+import styles from './styles';
 
 class SubmitButton extends Component {
     static propTypes = {
       content: PropTypes.string.isRequired,
-      navigateTo: PropTypes.string.isRequired
+      nextpage: PropTypes.string.isRequired,
+      navigator: PropTypes.object.isRequired
     }
 
     render = () => {
-        const { navigateTo, content } = this.props;
+        const { nextpage, content, navigator } = this.props;
         
         return (
             <View>
                 <TouchableOpacity style={styles.button}
                 color="#FFFFFF"
                 onPress={() => {
-                    this.props.navigation.navigate({navigateTo});
+                    navigator.navigate(nextpage);
                 }}>
                 <Text style={styles.buttonText}>{content}</Text>
                 </TouchableOpacity>
