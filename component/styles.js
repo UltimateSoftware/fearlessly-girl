@@ -2,6 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    backgroundContainer: {
+      flex: 1,
+      backgroundColor: '#FFFFFF'
+    },
+    backgroundImageContainer: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      opacity: 0.15
+    },
     container: {
       flex: 1,
       backgroundColor: 'transparent',
