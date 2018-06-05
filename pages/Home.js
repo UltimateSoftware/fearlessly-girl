@@ -5,6 +5,7 @@ import SubmitButton from '../component/submit.button';
 import TitleText from '../component/title.text';
 import InfoText from '../component/info.text';
 import styles from '../component/styles';
+import Logo from '../component/logo';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -21,19 +22,21 @@ export default class Home extends React.Component {
             source={require('../assets/images/fg-splash-bg.jpg')}/>
         </View>
         <View style={styles.container}>
-          <Image style={{width: 300, height: 80}}
-            transform={[{scaleX: 0.4}, {scaleY: 0.4}]}
-            source={require('../assets/images/logo-transparent.png')} />
-            <View style={styles.content}>
-              <TitleText text="Start Your Club"></TitleText>
-              <InfoText text={this.state.text}></InfoText>
-              <SubmitButton
-                content= {'Get Started'}
-                nextpage= {'UserSignup'}
-                navigator= {this.props.navigation}
-              />
-            </View>
-        </View>
+          <Logo/>
+            {
+              this.state.fontLoaded ? (
+              <View style={styles.content}>
+                <Text style={styles.title}>Start Your Club</Text>
+                <Text style={styles.info}>{this.state.text}</Text>
+                <SubmitButton
+                  content= {'Get Started'}
+                  nextpage= {'ChapterSignupForm'}
+                  navigator= {this.props.navigation}
+                />
+              </View>
+              ) : null
+            }
+      </View>
       </View>
     );
   }

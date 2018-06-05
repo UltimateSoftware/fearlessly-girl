@@ -31,6 +31,27 @@ const styles = StyleSheet.create({
       fontSize: 40,
       color: '#818282'
     },
+    input: {
+      fontFamily: 'openSansRegular',
+      fontSize: 16,
+      color: '#335F69',
+      textAlign: 'left',
+      padding: 5
+    },
+    inputTitle: {
+      fontFamily: 'openSansRegular',
+      fontSize: 20,
+      color: '#335F69',
+      textAlign: 'left'
+    },
+    inputContainer: {
+      backgroundColor: 'transparent',
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start',
+      borderRadius: 4,
+      paddingHorizontal: 25,
+      paddingVertical: 10
+    },
     info: {
       fontFamily: 'openSansSemiBold',
       fontSize: 14,

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { createStackNavigator } from 'react-navigation'
 
-import UserSignup from './pages/UserSignup';
-import Home from './pages/Home'
+import Home from './pages/Home';
+import ChapterSignupForm from './pages/ChapterSignupForm';
 
 export default class App extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
 const Nav = createStackNavigator(
   {
     Home: { screen: Home },
-    UserSignup: { screen: UserSignup },
+    ChapterSignupForm: { screen: ChapterSignupForm }
   },
   {
     initialRouteName: 'Home'
