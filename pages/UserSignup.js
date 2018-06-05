@@ -35,14 +35,14 @@ export default class UserSignup extends React.Component {
             });
             console.log(result);
             if (result.type === 'success') {
-                this.handleParams2(result.params);
+                this.handleParams(result.params);
             }
         } catch(error) {
             console.log("Error ", error);
         }
     };
 
-    handleParams2 = (responseObj) => {
+    handleParams = (responseObj) => {
         if (responseObj.error) {
             Alert.alert('Error', responseObj.error_description
                 || 'something went wrong while logging in');
