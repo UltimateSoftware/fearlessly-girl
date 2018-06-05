@@ -23,7 +23,7 @@ export default class UserSignup extends React.Component {
 
     _loginWithAuth0 = async () => {
         const redirectUrl = AuthSession.getRedirectUrl();
-        console.log(`Redirect URL (add this to Auth0): ${redirectUrl}`);
+        console.log(`Redirect URL: ${redirectUrl}`);
         const result = await AuthSession.startAsync({
             authUrl: `${auth0Domain}/authorize` + toQueryString({
                 client_id: auth0ClientId,
@@ -53,7 +53,6 @@ export default class UserSignup extends React.Component {
 
     componentWillMount(){
         this._loginWithAuth0
-        this.setState();
     }
 
     render() {
