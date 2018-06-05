@@ -36,7 +36,8 @@ export default class UserSignup extends React.Component {
                 this.handleParams(result.params);
             }
         } catch(error) {
-            console.log("Error ", error);
+            Alert.alert('Error', response.status
+                || 'something went wrong while logging in');
         }
     };
 
@@ -55,7 +56,8 @@ export default class UserSignup extends React.Component {
                     })
                 }
                 else {
-                    console.log('Something went wrong. ErrorCode: ', response.status);
+                    Alert.alert('Error', response.status
+                        || 'something went wrong while logging in');
                 }
             })
     };
