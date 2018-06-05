@@ -1,6 +1,14 @@
 import React from 'react';
-import { Button, View, Image } from 'react-native';
+import { Button, View, Image, Alert } from 'react-native';
 import styles from '../component/styles';
+import { AuthSession } from 'expo';
+import { auth0ClientId, auth0Domain } from '../config.js'
+
+function toQueryString(params) {
+    return '?' + Object.entries(params)
+            .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+            .join('&');
+}
 
 export default class UserSignup extends React.Component {
     constructor(props) {
@@ -9,6 +17,53 @@ export default class UserSignup extends React.Component {
 
     static navigationOptions = {
       title: "Login"
+    };
+
+    _loginWithAuth0 = async () => {
+        const redirectUrl = AuthSession.getRedirectUrl();
+        console.log(`Redirect URL: ${redirectUrl}`);
+        try {
+            const result = await AuthSession.startAsync({
+                authUrl: `${auth0Domain}/authorize` + toQueryString({
+                    client_id: auth0ClientId,
+                    response_type: 'token',
+                        scope: 'openid name',
+                    redirect_uri: redirectUrl,
+                }),
+            });
+            console.log(result);
+            if (result.type === 'success') {
+                this.handleParams(result.params);
+            }
+        } catch(error) {
+            Alert.alert('Error', response.status
+                || 'something went wrong while logging in');
+        }
+    };
+
+    handleParams = (responseObj) => {
+        if (responseObj.error) {
+            Alert.alert('Error', responseObj.error_description
+                || 'something went wrong while logging in');
+            return;
+        }
+
+        fetch(`${auth0Domain}/userinfo?access_token=${responseObj.access_token}`)
+            .then(response => {
+                if (response.status === 200) {
+                    response.json().then(parsedResponse => {
+                        console.log("UserID", parsedResponse);
+                    })
+                }
+                else {
+                    Alert.alert('Error', response.status
+                        || 'something went wrong while logging in');
+                }
+            })
+    };
+
+    async componentWillMount() {
+        this._loginWithAuth0();
     }
 
     render() {
@@ -22,18 +77,7 @@ export default class UserSignup extends React.Component {
                 <Image style={{width: 300, height: 80}} 
                 transform={[{scaleX: 0.4}, {scaleY: 0.4}]} 
                 source={require('../assets/images/logo-transparent.png')} />
-            <View style={styles.content}>
-              <Button title="Login with Facebook" onPress={() => {
-                alert('Login with Facebook');
-              }} />
-              <Button title="Login with Twitter" onPress={() => {
-                alert('Login with Twitter');
-              }}/>
-              <Button title="Login with Google" onPress={() => {
-                alert('Login with Google');
-              }}/>
             </View>
-          </View>
         </View>
       );
     }
