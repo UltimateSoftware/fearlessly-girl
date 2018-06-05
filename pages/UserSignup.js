@@ -2,9 +2,7 @@ import React from 'react';
 import { Button, View, Image, Alert } from 'react-native';
 import styles from '../component/styles';
 import { AuthSession } from 'expo';
-
-const auth0ClientId = 'VWIKGDisM2PJJPFMjfeb5mmQCqkKTuTP';
-const auth0Domain = 'https://fearless-girl.auth0.com';
+import { auth0ClientId, auth0Domain } from '../config.js'
 
 function toQueryString(params) {
     return '?' + Object.entries(params)
