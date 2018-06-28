@@ -4,7 +4,7 @@ import Swiper from 'react-native-swiper';
 import TitleText from '../../component/title.text'
 import InfoText from '../../component/info.text'
 import Footer from '../../component/footer'
-import BackgroundImage from '../../component/background.image'
+import LogoContainer from '../../component/logo.container'
 
 export default class ChapterSignupChecklist extends React.Component {
     static navigationOptions = {
@@ -13,23 +13,31 @@ export default class ChapterSignupChecklist extends React.Component {
 
     render() {
         return (
-            <Swiper>
-                <View>
-                    <BackgroundImage />
+            <Swiper 
+            showsPagination= {false}
+            loop= {false}>
+                <LogoContainer>
                     <TitleText text="Congratulations!"/>
                     <InfoText text="beepboop"/>
-                </View>
-                <View>
-                    <BackgroundImage />
+                    <Footer/>
+                </LogoContainer>
+                <LogoContainer>
                     <TitleText text="On to step 2!"/>
                     <InfoText text="beepboop"/>
-                </View>
-                <View>
-                    <BackgroundImage />
+                    <Footer/>
+                </LogoContainer>
+                <LogoContainer>
                     <TitleText text="On to step 3!"/>
                     <InfoText text="beepboop"/>
-                </View>
+                    <Footer/>
+                </LogoContainer>
             </Swiper>      
         );
     }
 }
+
+const styles = StyleSheet.create({
+    title: {
+        
+    }
+})

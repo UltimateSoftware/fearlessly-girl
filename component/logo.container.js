@@ -9,6 +9,7 @@ export default class LogoContainer extends React.Component {
         if (this.props.showBackground) {
             background = <BackgroundImage/>
         }
+        
         return (
         <View style={styles.backgroundContainer}>
             {background}
