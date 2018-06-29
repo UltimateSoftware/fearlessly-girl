@@ -17,18 +17,53 @@ export default class ChapterSignupChecklist extends React.Component {
             showsPagination= {false}
             loop= {false}>
                 <LogoContainer>
-                    <TitleText text="Congratulations!"/>
-                    <InfoText text="beepboop"/>
+                    <View>
+                        <TitleText text="Congratulations {{TODO: Get current logged in user}}!"/>
+                        <InfoText text="You just took the first big step of starting your very own Fearlessly Girl Chapter. Let's help you take the next steps in beginning your Fearlessly Girl Chapter."/>
+                        <Text>Swipe left to take the next step</Text>
+                    </View>
                     <Footer/>
                 </LogoContainer>
                 <LogoContainer>
-                    <TitleText text="On to step 2!"/>
-                    <InfoText text="beepboop"/>
+                    <TitleText text="Find An Advisor"/>
+                    <InfoText text="This is the description of this step."/>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2610'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Find an advisor</Text>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2610'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Get funding</Text>
+                    </View>
+                    <Text>Swipe left to take the next step.</Text>
                     <Footer/>
                 </LogoContainer>
                 <LogoContainer>
-                    <TitleText text="On to step 3!"/>
-                    <InfoText text="beepboop"/>
+                    <TitleText text="Getting Funding"/>
+                    <InfoText text="This is the description of this step."/>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2714'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Find an advisor</Text>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2610'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Get funding</Text>
+                    </View>
+                    <Text>Swipe left to take the next step.</Text>
+                    <Footer/>
+                </LogoContainer>
+                <LogoContainer>
+                    <TitleText text="That's it for now!"/>
+                    <InfoText text="This is the description of this step."/>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2714'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Find an advisor</Text>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <Text>{'\u2714'}</Text>
+                        <Text style={{flex: 1, paddingLeft: 5}}>Get funding</Text>
+                    </View>
+                    <Text>Swipe left to take the next step.</Text>
                     <Footer/>
                 </LogoContainer>
             </Swiper>      
